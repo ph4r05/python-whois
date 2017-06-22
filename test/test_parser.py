@@ -16,7 +16,7 @@ import datetime
 import simplejson
 from glob import glob
 
-from whois.parser import WhoisEntry, cast_date
+from ph4whois.parser import WhoisEntry, cast_date
 
 class TestParser(unittest.TestCase):
     def test_com_expiration(self):

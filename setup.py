@@ -4,7 +4,7 @@ import setuptools
 version = '0.6.5'
 
 setuptools.setup(
-    name='python-whois',
+    name='ph4-python-whois',
     version=version,
     description="Whois querying and parsing of domain registration information.",
     long_description='',
@@ -22,10 +22,12 @@ setuptools.setup(
     keywords='whois, python',
     author='Richard Penman',
     author_email='richard@webscraping.com',
-    url='https://bitbucket.org/richardpenman/pywhois',
+    maintainer='Dusan Klinec (ph4r05)',
+    maintainer_email='dusan.klinec@gmail.com',
+    url='https://github.com/ph4r05/python-whois',
     license='MIT',
-    packages=['whois'],
-    package_dir={'whois':'whois'},
+    packages=['ph4whois'],
+    package_dir={'ph4whois':'ph4whois'},
     extras_require={
         'better date conversion': ["python-dateutil"]
     },

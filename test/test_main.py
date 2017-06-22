@@ -8,7 +8,7 @@ from future import standard_library
 standard_library.install_aliases()
 from builtins import *
 import unittest
-from whois import extract_domain
+from ph4whois import extract_domain
 
 
 class TestExtractDomain(unittest.TestCase):

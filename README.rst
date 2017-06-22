@@ -1,3 +1,10 @@
+Whois Python lib
+================
+
+This project has been forked from the
+https://bitbucket.org/richardpenman/pywhois
+
+
 Goal
 ====
 
@@ -15,8 +22,8 @@ Example
 
 .. sourcecode:: python
 
-    >>> import whois
-    >>> w = whois.whois('webscraping.com')
+    >>> import ph4whois
+    >>> w = ph4whois.whois('webscraping.com')
     >>> w.expiration_date  # dates converted to datetime object
     datetime.datetime(2013, 6, 26, 0, 0)
     >>> w.text  # the content downloaded from whois server
@@ -39,12 +46,17 @@ Install from pypi:
 
 .. sourcecode:: bash
 
-    pip install python-whois
+    pip install ph4-python-whois
 
 Or checkout latest version from repository:
 
 .. sourcecode:: bash
 
+    git clone https://github.com/ph4r05/python-whois.git
+
+Original repo of the fork
+
+.. sourcecode:: bash
     hg clone https://bitbucket.org/richardpenman/pywhois
 
 Note that then you will need to manually install the futures module, which allows supporting both Python 2 & 3:

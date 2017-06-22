@@ -8,7 +8,7 @@ from future import standard_library
 standard_library.install_aliases()
 from builtins import *
 import unittest
-from whois.whois import NICClient
+from ph4whois.whois import NICClient
 
 
 class TestNICClient(unittest.TestCase):

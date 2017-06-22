@@ -8,7 +8,7 @@ from future import standard_library
 standard_library.install_aliases()
 from builtins import *
 import unittest
-from whois import whois
+from ph4whois import whois
 
 
 class TestQuery(unittest.TestCase):
