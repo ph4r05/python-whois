@@ -76,6 +76,7 @@ def datetime_parse(s):
             pass  # Wrong format, keep trying
     return s
 
+
 def cast_date(s, dayfirst=False, yearfirst=False):
     """Convert any date string found in WHOIS to a datetime object.
     """

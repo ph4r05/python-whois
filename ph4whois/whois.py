@@ -59,12 +59,13 @@ class NICClient(object):
     IANAHOST = "whois.iana.org"
     PANDIHOST = "whois.pandi.or.id"
     DENICHOST = "de.whois-servers.net"
+    CZNICHOST = "whois.nic.cz"
     DEFAULT_PORT = "nicname"
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
 
-    ip_whois = [LNICHOST, RNICHOST, PNICHOST, BNICHOST,PANDIHOST]
+    ip_whois = [LNICHOST, RNICHOST, PNICHOST, BNICHOST, PANDIHOST]
 
     def __init__(self):
         self.use_qnichost = False
