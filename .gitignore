@@ -1,2 +1,4 @@
 .hg*
 .idea
+*.egg-info
+dist/
