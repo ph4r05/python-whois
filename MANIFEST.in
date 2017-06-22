@@ -1,2 +1,2 @@
-include whois/data/tlds.txt
+include ph4whois/data/tlds.txt
 include README.rst
