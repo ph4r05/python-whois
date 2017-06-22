@@ -51,7 +51,19 @@ KNOWN_FORMATS = [
 ]
 
 
-class PywhoisError(Exception):
+class PywhoisErrorBase(Exception):
+    pass
+
+
+class PywhoisError(PywhoisErrorBase):
+    pass
+
+
+class PywhoisTldError(PywhoisErrorBase):
+    pass
+
+
+class PywhoisNoWhoisError(PywhoisErrorBase):
     pass
 
 
@@ -111,7 +123,7 @@ class WhoisEntry(dict):
 
     def __init__(self, domain, text, regex=None):
         if 'This TLD has no whois server, but you can access the whois database at' in text:
-            raise PywhoisError(text)
+            raise PywhoisTldError(text)
         else:
             self.domain = domain
             self.text = text
@@ -173,7 +185,7 @@ class WhoisEntry(dict):
         that represents its parsed contents.
         """
         if text.strip() == 'No whois server is known for this kind of object.':
-            raise PywhoisError(text)
+            raise PywhoisNoWhoisError(text)
 
         if domain.endswith('.com'):
             return WhoisCom(domain, text)
