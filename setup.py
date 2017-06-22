@@ -1,7 +1,7 @@
 import sys, os
 import setuptools
 
-version = '0.6.7'
+version = '0.6.8'
 
 setuptools.setup(
     name='ph4-python-whois',
