@@ -59,6 +59,10 @@ class PywhoisError(PywhoisErrorBase):
     pass
 
 
+class PywhoisSlowDownError(PywhoisErrorBase):
+    pass
+
+
 class PywhoisTldError(PywhoisErrorBase):
     pass
 
@@ -258,6 +262,8 @@ class WhoisEntry(dict):
             return WhoisID(domain, text)
         elif domain.endswith('.sk'):
             return WhoisSK(domain, text)
+        elif domain.endswith('.cz'):
+            return WhoisCZ(domain, text)
         elif domain.endswith('.se'):
             return WhoisSe(domain, text)
         elif domain.endswith('.nu'):
@@ -1145,6 +1151,34 @@ class WhoisSK(WhoisEntry):
         def __init__(self, domain, text):
             if 'Not found' in text:
                 raise PywhoisError(text)
+            else:
+                WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCZ(WhoisEntry):
+        """
+        Whois parser for .cz domains
+         """
+        regex = {
+            'domain_name':                  'domain: *(.+)',
+            'creation_date':                'registered: *(.+)',
+            'expiration_date':              'expire: *(.+)',
+            'updated_date':                 'changed: *(.+)',
+            'name_servers':                 'nserver: *(.+)',
+            'nsset':                        'nsset: *(.+)',
+            'registrant':                   'registrant: *(.+)',
+            'registrar':                    'registrar: *(.+)',
+            'emails':                       'e-mail: *(.+)',
+            'dnssec':                       'keyset: *(.+)',
+            'contacts':                     'contact: *(.+)',
+
+        }
+
+        def __init__(self, domain, text):
+            if 'o entries found' in text:
+                raise PywhoisError(text)
+            elif 'connection limit exceeded' in text:
+                raise PywhoisSlowDownError(text)
             else:
                 WhoisEntry.__init__(self, domain, text, self.regex)
 
